@@ -1,0 +1,568 @@
+/* =========================================
+   1. GENERAL SETUP & THEMES
+   ========================================= */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.5s ease, color 0.3s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #070c18, #191a63, #42195a);
+  color: #e5e7eb;
+}
+
+body.light {
+  background: linear-gradient(135deg, #e4fcfc, #fffdfd, #fae5e9);
+  color: #111111;
+}
+
+/* =========================================
+   2. NAVBAR & NAVIGATION
+   ========================================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+/* --- Nav Links with View Project Style --- */
+/* --- Nav Links with View Project Style --- */
+.nav-links a {
+  margin-left: 15px;
+  padding: 10px 22px; /* Increased padding for the button look */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 50px; /* Pill shape */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  
+  /* The "View Project" Liquid Glass look */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.3); /* The "Shine" edge */
+}
+
+/* Hover State: Bouncy & Glowing */
+.nav-links a:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(245, 219, 255, 0.082);
+  border-color:  #789bac81; /* Cyan glow to match your brand colors */
+  box-shadow: 0 8px 20px rgba(55, 0, 255, 0.288);
+  color: #eac6ff;
+}
+
+/* Light Mode Adjustment */
+body.light .nav-links a {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.8);
+}
+
+body.light .nav-links a:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  border-color: #6366f1;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+}
+/* Light Mode Adjustment */
+body.light .nav-links a {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.8);
+}
+
+body.light .nav-links a:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  border-color: #6366f1;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+}
+/* Light Mode adjustment */
+body.light .nav-links a:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: #6366f1;
+}
+/* Desktop Theme Toggle Button */
+#themeToggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 15px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.links.dark{
+  text-decoration:none;
+  color:white;
+}
+.links.light{
+  text-decoration:none;
+  color:rgb(13, 63, 172);
+}
+#themeToggle:hover {
+  background: rgba(99, 102, 241, 0.3);
+  transform: rotate(15deg);
+}
+
+body.light #themeToggle {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   3. CUSTOM HAMBURGER (THE 3 LINES)
+   ========================================= */
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1100;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+  border-radius: 10px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Animation: Turning into X */
+.menu-toggle.is-active .bar:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.menu-toggle.is-active .bar:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.menu-toggle.is-active .bar:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+/* This makes the button stay in the top-right corner regardless of scrolling */
+.menu-toggle.is-active {
+  position: fixed; 
+   right: 25px;  /* Match your navbar padding */
+  z-index: 2100; /* Higher than everything else */
+}
+
+/* Ensure the navbar itself stays on top of content if needed */
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+
+/* 
+   4. HERO SECTION & GLASS BUTTONS
+  */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 40px;
+}
+
+.hero-text h1 span {
+  color: #6366f1;
+}
+
+
+.hero-text h3 {
+  color: #6366f1;
+  font-weight: 500;
+  font-size: 1.5rem;
+  min-height: 2rem;
+}
+
+.hero-buttons .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  position: relative;
+}
+
+/* Button Themes */
+body.dark .hero-buttons .btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body.light .hero-buttons .btn {
+  background: rgba(99, 102, 241, 0.1);
+  color: #312e81;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(43, 3, 117, 0.13);
+}
+
+.hero-buttons .btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 15px 45px rgba(0, 11, 58, 0.589);
+}
+
+.hero-img img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #6366f1;
+  transition: transform 0.3s;
+}
+/* --- About Page Layout --- */
+.all-about {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Large spacing between sections */
+}
+
+.about-section {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+/* Staggered Fade-In Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(var(--order) * 0.2s); /* Each card waits for the one before it */
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Content Styling --- */
+.about-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #7062ee; /* Cyan to match logo */
+  margin-bottom: 20px;
+}
+
+.exp-item {
+  margin-top: 25px;
+  padding-left: 15px;
+  border-left: 2px solid rgba(255, 0, 255, 0.3); /* Magenta accent line */
+}
+
+.exp-item h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.exp-item span {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* --- Liquid Glass Blobs --- */
+.blob {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.281), rgba(0, 255, 255, 0.2));
+  filter: blur(80px);
+  z-index: -1;
+  border-radius: 50%;
+  animation: floatBlobs 20s infinite alternate;
+}
+
+.blob-1 { top: -100px; right: -100px; }
+.blob-2 { bottom: -100px; left: -100px; animation-delay: -5s; }
+
+/* --- Project Grid Styling --- */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+#home{
+  color :white;
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(47, 110, 245, 0.322);
+}
+
+/* ================================
+   PROJECT CARD – 3D EFFECT REMOVED
+   (ONLY CHANGE MADE HERE)
+   ================================ */
+
+.project-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+
+  /* CHANGE: remove elevation animation */
+  transition: background 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* CHANGE: remove hover elevation & glow */
+.project-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: none; /* 🔴 removed 3D shadow */
+}
+
+/* CHANGE: remove image zoom */
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: none; /* 🔴 no zoom animation */
+  transform: none;  /* 🔴 force flat */
+}
+
+
+
+.project-info {
+  padding: 20px;
+  transition: transform 0.4s ease;
+}
+
+.project-info h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  
+  color: #7489ff;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover h3 {
+   color: #bd87e0;/* Title changes color to match the border */
+  
+}
+
+.project-info p {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.view-project-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Inheriting the Nav Link "Liquid Glass" look by default */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #e5e7eb; /* Default light text */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.3); /* The "Shine" edge */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover State: Bouncy & Glowing like the Nav Menu */
+.view-project-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(111, 113, 255, 0.103); /* Soft Indigo background */
+  border-color: #6365f1a8; /* Indigo glow */
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+  color: #ffffff;
+}
+
+/* Light Mode Adjustment for Project Button */
+body.light .view-project-btn {
+  background: rgba(0, 0, 0, 0.05);
+  color: #312e81;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.8);
+}
+
+body.light .view-project-btn:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  border-color: #6365f15e;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+}
+@keyframes floatBlobs {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(50px, 100px) scale(1.2); }
+}
+/* =========================================
+   5. SKILLS, CARDS & 3D EFFECTS
+   ========================================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.skill-card, .about-card {
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+
+  will-change: transform;
+}
+
+body.light .skill-card, body.light .project-card, body.light .about-card {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.skill-card i {
+  font-size: 3rem;
+  color: #6366f1;
+  display: block;
+  margin-bottom: 10px;
+  transform: translateZ(30px); /* 3D pop */
+}
+
+/* =========================================
+   6. MOBILE VIEW (MAX 768PX)
+   ========================================= */
+@media (max-width: 768px) {
+  .navbar { padding: 20px; }
+  
+  .hero { 
+    flex-direction: column-reverse; 
+    text-align: center; 
+    padding: 40px 20px;
+  }
+
+  .menu-toggle {
+    position: relative;
+    display: flex; /* Show the 3 bars */
+  }
+
+  .nav-links {
+    position: fixed;
+    margin-top: 20px;
+    border-radius: 20px 20px 20px 20px;
+    top: 0;
+    right: -100%;
+    width: 35%; /* More standard width for liquid glass feel */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    transition: right 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+    z-index: 1000;
+    
+    /* Liquid Glass Sidebar */
+    background: rgba(224, 63, 63, 0.151);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  /* Light mode for mobile menu */
+  body.light .nav-links {
+    background: rgba(79, 93, 134, 0.034);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  #themeToggle {
+    margin: 20px 0 0 0;
+  }
+}
+/* =========================================
+   7. FOOTER & ANIMATIONS
+   ========================================= */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.7;
+}
+
+.footer-heart {
+  color: #ff4d4d;
+  display: inline-block;
+  margin: 0 5px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}

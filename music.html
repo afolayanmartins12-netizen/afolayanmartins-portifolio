@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundGlass | Music Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/music.css">
+</head>
+<body>
+    <div class="bg-circle c1"></div>
+    <div class="bg-circle c2"></div>
+
+    <main class="player-card" id="main-wrapper">
+        <div class="top-bar">
+            <i class="ri-menu-2-line" id="show-list" title="Open Playlist"></i>
+            <span>Now Playing</span>
+            <a href="index.html" style="color:white;"><i class="ri-home-4-line"></i></a>
+        </div>
+
+        <div class="img-area">
+            <img id="track-art" src="" alt="Album Art">
+        </div>
+
+        <div class="song-details">
+            <p class="name" id="track-name">Loading...</p>
+            <p class="artist" id="track-artist">Connecting to server...</p>
+        </div>
+
+        <div class="progress-area" id="progress-area">
+            <div class="progress-bar" id="progress-bar"></div>
+            <div class="timer">
+                <span id="current-time">0:00</span>
+                <span id="max-duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <i id="shuffle" class="ri-shuffle-line" title="Shuffle"></i>
+            <i id="prev" class="ri-skip-back-fill"></i>
+            <div class="play-pause" id="play-pause">
+                <i class="ri-play-fill"></i>
+            </div>
+            <i id="next" class="ri-skip-forward-fill"></i>
+            <i id="repeat" class="ri-repeat-2-line" title="Repeat"></i>
+        </div>
+
+        <div class="music-list" id="music-list">
+            <div class="list-header">
+                <span><i class="ri-music-2-line"></i> My Playlist</span>
+                <i id="close-list" class="ri-close-line"></i>
+            </div>
+            <ul id="playlist-container">
+                </ul>
+        </div>
+
+        <audio id="main-audio" src=""></audio>
+    </main>
+
+    <script src="js/music.js"></script>
+</body>
+</html>

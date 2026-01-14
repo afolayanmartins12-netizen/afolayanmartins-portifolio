@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Night Owl",
+        "artist": "Broke For Free",
+        "img": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500",
+        "src": "https://www.chosic.com/wp-content/uploads/2021/07/Rain-and-Wait-Lofi-Chill.mp3"
+    },
+    {
+        "name": "Golden Hour",
+        "artist": "Lofi Girl",
+        "img": "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=500",
+        "src": "https://www.chosic.com/wp-content/uploads/2021/04/Reflections.mp3"
+    },
+    {
+        "name": "Midnight City",
+        "artist": "Retro Wave",
+        "img": "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=500",
+        "src": "https://www.chosic.com/wp-content/uploads/2021/10/Faded-Memories.mp3"
+    }
+]

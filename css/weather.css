@@ -1,0 +1,188 @@
+:root {
+  --glass: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.2);
+  --accent: #6366f1;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background Decoration */
+.background-circles .circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+}
+.circle:nth-child(1) { width: 300px; height: 300px; background: var(--accent); top: 10%; left: 20%; }
+.circle:nth-child(2) { width: 250px; height: 250px; background: #ec4899; bottom: 10%; right: 20%; }
+
+.glass-container {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.699);
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+select {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(146, 0, 231, 0.048);
+  color: rgb(242, 198, 255);
+  border: 1px solid var(--border);
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover { transform: scale(1.05); background: #4f46e5; }
+
+.hidden { display: none; }
+
+.temp-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.stat-card {
+  background: rgba(255, 206, 231, 0.158);
+  padding: 15px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.stat-card i {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+#city-select {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 12px;
+  background: rgba(54, 91, 177, 0.233); /* Solid dark background */
+  color: #ffffff; /* Pure white text */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+  appearance: none; /* Removes default browser arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+#city-select:focus {
+  border-color: #6366f1; /* Purple glow when clicked */
+}
+
+/* Fix for the dropdown options (the list that pops out) */
+#city-select option {
+  background:rgba(0, 0, 255, 0.295); /* Dark solid color for the list */
+  backdrop-filter: inherit;
+  color: white;
+  padding: 10px;
+}
+
+/* Style the Button to pop more */
+#get-weather-btn {
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+#get-weather-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 10px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  z-index: 100; /* Keeps it above everything */
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px); /* Subtle slide effect */
+  border-color: #6366f1; /* Your purple accent color */
+  color: #6366f1;
+}
+
+.back-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.back-btn:hover svg {
+  fill: #6366f1;
+}
+
+/* On mobile, make it a bit smaller */
+@media (max-width: 480px) {
+  .back-btn span {
+    display: none; /* Only show icon on very small screens */
+  }
+  .back-btn {
+    padding: 10px;
+  }
+}

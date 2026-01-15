@@ -10,7 +10,7 @@ body {
 }
 
 body.dark {
-  background: linear-gradient(135deg, #070c18, #191a63, #42195a);
+  background: linear-gradient(135deg, #070c18, #191a63, #150020);
   color: #e5e7eb;
 }
 
@@ -454,7 +454,7 @@ body.light .view-project-btn:hover {
 }
 
 .skill-card, .about-card {
-  padding: 25px;
+  padding: 15px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -473,7 +473,7 @@ body.light .skill-card, body.light .project-card, body.light .about-card {
   font-size: 3rem;
   color: #6366f1;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   transform: translateZ(30px); /* 3D pop */
 }
 
@@ -482,7 +482,9 @@ body.light .skill-card, body.light .project-card, body.light .about-card {
    ========================================= */
 @media (max-width: 768px) {
   .navbar { padding: 20px; }
-  
+  #skills{
+    margin-top: -10px;
+  }
   .hero { 
     flex-direction: column-reverse; 
     text-align: center; 
@@ -500,7 +502,7 @@ body.light .skill-card, body.light .project-card, body.light .about-card {
     border-radius: 20px 20px 20px 20px;
     top: 0;
     right: -100%;
-    width: 35%; /* More standard width for liquid glass feel */
+    width: 25%; /* More standard width for liquid glass feel */
     flex-direction: column;
     justify-content: center;
     align-items: center;
